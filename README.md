@@ -12,7 +12,7 @@ Please read these caveats carefully before starting to use this software.
 
 - Please do NOT run `ndk-pkg` command in parallel so as not to generate dirty data.
 
-## Platforms that this software can run on
+## Platforms that this software can run on -
 
 |HostOS|HostArch|SubSystem|recommended|fully tested|fully supported|
 |------|--------|---------|-----------|------------|-------|
