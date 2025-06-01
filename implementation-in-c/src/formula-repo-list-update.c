@@ -28,7 +28,7 @@ int ndkpkg_formula_repo_list_update() {
         ndkpkg_formula_repo_list_free(formulaRepoList);
 
         if (!officialCoreIsThere) {
-            const char * const formulaRepoUrl = "https://github.com/leleliu008/ndkpkg-formula-repository-official-core";
+            const char * const formulaRepoUrl = "https://github.com/dyglcc/ndkpkg-formula-repository-official-core";
             ret = ndkpkg_formula_repo_add("official-core", formulaRepoUrl, "master", false, true);
         }
     }
