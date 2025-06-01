@@ -38,7 +38,7 @@ In this way, you do NOT need to frequently update this software, you always use 
 
 In this way, all you need to do is just clicking the buttons and waiting for finishing. After finishing, a url refers to a zip archive will be provided to download.
 
-For more details please refer to <https://github.com/leleliu008/ndk-pkg-package-manually-build>
+For more details please refer to <https://github.com/dyglcc/ndk-pkg-package-manually-build>
 
 ## Using ndk-pkg via [Docker](https://www.docker.com/)
 
@@ -52,7 +52,7 @@ This is the recommended way of using this software if you want to use this softw
 mkdir -p ~/ndk-pkg-home
 mkdir -p ~/.m2
 
-docker create -it --name ndk-pkg -v ~/ndk-pkg-home:/root/.ndk-pkg -v ~/.m2:/root/.m2 ghcr.io/leleliu008/ndk-pkg
+docker create -it --name ndk-pkg -v ~/ndk-pkg-home:/root/.ndk-pkg -v ~/.m2:/root/.m2 ghcr.io/dyglcc/ndk-pkg
 ```
 
 **step2. start the ndk-pkg docker container**
@@ -94,7 +94,7 @@ tar xf ubuntu-base-24.04.2-base-amd64.tar.gz -C ubuntu-rootfs
 
 cp -p /etc/resolv.conf ubuntu-rootfs/etc/
 
-curl -LO https://raw.githubusercontent.com/leleliu008/ndk-pkg/master/ndk-pkg
+curl -LO https://raw.githubusercontent.com/dyglcc/ndk-pkg/master/ndk-pkg
 chmod a+x ndk-pkg
 mv ndk-pkg ubuntu-rootfs/bin/
 
@@ -121,7 +121,7 @@ tar xf alpine-minirootfs-3.20.3-x86_64.tar.gz -C alpine-rootfs
 
 cp -p /etc/resolv.conf alpine-rootfs/etc/
 
-curl -LO https://raw.githubusercontent.com/leleliu008/ndk-pkg/master/ndk-pkg
+curl -LO https://raw.githubusercontent.com/dyglcc/ndk-pkg/master/ndk-pkg
 chmod a+x ndk-pkg
 mv ndk-pkg alpine-rootfs/bin/
 
@@ -164,7 +164,7 @@ export NDKPKG_HOME=/mnt/d/ndk-pkg
 sudo apt -y update
 sudo apt -y install curl
 
-curl -LO https://raw.githubusercontent.com/leleliu008/ndk-pkg/master/ndk-pkg
+curl -LO https://raw.githubusercontent.com/dyglcc/ndk-pkg/master/ndk-pkg
 chmod a+x ndk-pkg
 ./ndk-pkg setup
 ```
@@ -176,21 +176,21 @@ chmod a+x ndk-pkg
 - Running `ndk-pkg` locally directly on your local host is not recommended due to build tools(e.g. autotools, cmake, etc) are easy to be affected by environment variables. Running `ndk-pkg` in an isolated clean environment (`docker`, `chroot`) is highly recommended.
 
 ```bash
-curl -LO https://raw.githubusercontent.com/leleliu008/ndk-pkg/master/ndk-pkg
+curl -LO https://raw.githubusercontent.com/dyglcc/ndk-pkg/master/ndk-pkg
 chmod a+x ndk-pkg
 ./ndk-pkg setup
 ```
 
 中国大陆的用户亦可将上面的地址替换为下面的地址:
 
-- https://ghfast.top/https://raw.githubusercontent.com/leleliu008/ndk-pkg/master/ndk-pkg
-- https://cdn.jsdelivr.net/gh/leleliu008/ndk-pkg/ndk-pkg
+- https://ghfast.top/https://raw.githubusercontent.com/dyglcc/ndk-pkg/master/ndk-pkg
+- https://cdn.jsdelivr.net/gh/dyglcc/ndk-pkg/ndk-pkg
 - https://gitee.com/fpliu/ndk-pkg/raw/master/ndk-pkg
 
 ## Install ndk-pkg via git
 
 ```bash
-git clone --depth 1 https://github.com/leleliu008/ndk-pkg
+git clone --depth 1 https://github.com/dyglcc/ndk-pkg
 ndk-pkg/ndk-pkg setup
 ```
 
@@ -405,8 +405,8 @@ a typical hierarchical structure under `~/.ndk-pkg` directory looks like below:
     This command is mainly doing the following things:
 
   - install `curl` via your system's package manager if none of `curl` `wget` `http` `lynx` `aria2c` `axel` command is found when `-y` option is given.
-  - install [uppm](https://github.com/leleliu008/uppm) to `~/.ndk-pkg/core`
-  - install other essential tools (listed below) that are used by this shell script via [uppm](https://github.com/leleliu008/uppm)
+  - install [uppm](https://github.com/dyglcc/uppm) to `~/.ndk-pkg/core`
+  - install other essential tools (listed below) that are used by this shell script via [uppm](https://github.com/dyglcc/uppm)
 
     - [GNU Bash](https://www.gnu.org/software/bash/manual/bash.html)
     - [GNU CoreUtils](https://www.gnu.org/software/coreutils/manual/coreutils.html)
@@ -564,13 +564,13 @@ a typical hierarchical structure under `~/.ndk-pkg` directory looks like below:
 - **add a new formula repository**
 
     ```bash
-    ndk-pkg formula-repo-add my_repo https://github.com/leleliu008/ndk-pkg-formula-repository-my_repo
-    ndk-pkg formula-repo-add my_repo https://github.com/leleliu008/ndk-pkg-formula-repository-my_repo --branch=master
-    ndk-pkg formula-repo-add my_repo https://github.com/leleliu008/ndk-pkg-formula-repository-my_repo --branch=main
+    ndk-pkg formula-repo-add my_repo https://github.com/dyglcc/ndk-pkg-formula-repository-my_repo
+    ndk-pkg formula-repo-add my_repo https://github.com/dyglcc/ndk-pkg-formula-repository-my_repo --branch=master
+    ndk-pkg formula-repo-add my_repo https://github.com/dyglcc/ndk-pkg-formula-repository-my_repo --branch=main
 
-    ndk-pkg formula-repo-add my_repo https://github.com/leleliu008/ndk-pkg-formula-repository-my_repo --sync
-    ndk-pkg formula-repo-add my_repo https://github.com/leleliu008/ndk-pkg-formula-repository-my_repo --sync --branch=master
-    ndk-pkg formula-repo-add my_repo https://github.com/leleliu008/ndk-pkg-formula-repository-my_repo --sync --branch=main
+    ndk-pkg formula-repo-add my_repo https://github.com/dyglcc/ndk-pkg-formula-repository-my_repo --sync
+    ndk-pkg formula-repo-add my_repo https://github.com/dyglcc/ndk-pkg-formula-repository-my_repo --sync --branch=master
+    ndk-pkg formula-repo-add my_repo https://github.com/dyglcc/ndk-pkg-formula-repository-my_repo --sync --branch=main
     ```
 
 - **delete a existing formula repository**
@@ -810,9 +810,9 @@ a ndk-pkg formula's file content only has one level mapping and shall has follow
 ||||
 |`reslist`|optional|multiple lines of `<res-sha>\|<res-url>[\|res-uri][\|unpack-dir][\|N]`. `unpack-dir` is relative to `$PACKAGE_WORKING_DIR/res`, default value is empty. `N` is `--strip-components=N`|
 ||||
-|`dep-pkg`|optional|a space-separated list of   `ndk-pkg packages` that are depended by this package at install time and/or run time, which will be installed via [ndk-pkg](https://github.com/leleliu008/ndk-pkg).|
+|`dep-pkg`|optional|a space-separated list of   `ndk-pkg packages` that are depended by this package at install time and/or run time, which will be installed via [ndk-pkg](https://github.com/dyglcc/ndk-pkg).|
 |`dep-lib`|optional|a space-separated list of libraries that will be linked. library name starts with `-l` will be directly passed to the linker. otherwise, it will be recognized as a `pkg-config` package name and it will be calculated via `pkg-config --libs-only-l ` then passed to the linker.|
-|`dep-upp`|optional|a space-separated list of   `uppm packages` that are depended by this package at install time and/or run time, which will be installed via [uppm](https://github.com/leleliu008/uppm).|
+|`dep-upp`|optional|a space-separated list of   `uppm packages` that are depended by this package at install time and/or run time, which will be installed via [uppm](https://github.com/dyglcc/uppm).|
 |`dep-pym`|optional|a space-separated list of `python packages` that are depended by this package at install time and/or run time, which will be installed via [pip3](https://github.com/pypa/pip).|
 |`dep-plm`|optional|a space-separated list of    `perl modules` that are depended by this package at install time and/or run time, which will be installed via [cpan](https://metacpan.org/dist/CPAN/view/scripts/cpan).|
 ||||
@@ -913,7 +913,7 @@ a ndk-pkg formula's file content only has one level mapping and shall has follow
 |`NDKPKG_HOME`|the home directory of `ndk-pkg` that you're running.|
 |`NDKPKG_VERSION`|the version of `ndk-pkg` that you're running.|
 |||
-|`UPPM`|the executable filepath of [uppm](https://github.com/leleliu008/uppm)|
+|`UPPM`|the executable filepath of [uppm](https://github.com/dyglcc/uppm)|
 |||
 |`TIMESTAMP_UNIX`|the unix timestamp of this action.|
 |||
@@ -1000,7 +1000,7 @@ a ndk-pkg formula repository's config file is located at `${NDKPKG_HOME}/repos.d
 a typical ndk-pkg formula repository's config file content looks like below:
 
 ```yaml
-url: https://github.com/leleliu008/ndk-pkg-formula-repository-official-core
+url: https://github.com/dyglcc/ndk-pkg-formula-repository-official-core
 branch: master
 pinned: 0
 enabled: 1
@@ -1018,7 +1018,7 @@ run `ndk-pkg formula-repo-add ` command to create a new formula repository local
 
 ## ndk-pkg official formula repository
 
-ndk-pkg official formula repository is hosted at <https://github.com/leleliu008/ndk-pkg-formula-repository-official-core>
+ndk-pkg official formula repository is hosted at <https://github.com/dyglcc/ndk-pkg-formula-repository-official-core>
 
 It would be automatically fetched to your local repository as name `official-core` when you run `ndk-pkg update` command.
 
@@ -1026,7 +1026,7 @@ It would be automatically fetched to your local repository as name `official-cor
 
 ## Using my prefab aars that have been published to GitHub-Hosted Maven Repository alongside with Android Gradle Plugin
 
-I have published some commonly used packages as google prefab aar to <https://github.com/leleliu008/ndk-pkg-prefab-aar-maven-repo>
+I have published some commonly used packages as google prefab aar to <https://github.com/dyglcc/ndk-pkg-prefab-aar-maven-repo>
 
 ## Using my prefab aars that have been published to Maven Central Repository alongside with Android Gradle Plugin
 
@@ -1233,7 +1233,7 @@ android {
 
 **Examples:**
 
-- <https://github.com/leleliu008/android-calendar-for-the-aged>
+- <https://github.com/dyglcc/android-calendar-for-the-aged>
 
 ## Create the google prefab aar then deploy it to Maven Local Repository and use it alongside with Android Gradle Plugin
 
@@ -1439,5 +1439,5 @@ android {
 
 **Examples:**
 
-- <https://github.com/leleliu008/ndk-pkg-prefab-example-ffmpeg>
-- <https://github.com/leleliu008/ndk-pkg-prefab-example-libphonenumber>
+- <https://github.com/dyglcc/ndk-pkg-prefab-example-ffmpeg>
+- <https://github.com/dyglcc/ndk-pkg-prefab-example-libphonenumber>

@@ -146,7 +146,7 @@ int check_if_is_a_empty_dir(const char * dirpath, bool * value) {
 
 // implement following steps:
 // git -c init.defaultBranch=master init
-// git remote add origin https://github.com/leleliu008/ndkpkg-formula-repository-official-core.git
+// git remote add origin https://github.com/dyglcc/ndkpkg-formula-repository-official-core.git
 // git fetch --progress origin +refs/heads/master:refs/remotes/origin/master
 // git checkout --progress --force -B master refs/remotes/origin/master
 int ndkpkg_git_sync(const char * repositoryDIR, const char * remoteUrl, const char * remoteRefPath, const char * remoteTrackingRefPath, const char * checkoutToBranchName, const size_t fetchDepth) {
@@ -440,8 +440,8 @@ int ndkpkg_git_sync(const char * repositoryDIR, const char * remoteUrl, const ch
     // git cat-file -p FETCH_HEAD
     // tree 29bd7db599c429dd821a8564196a02daebe09465
     // parent eb86afc806d4df01763663c1f2a9b411bddf3a82
-    // author leleliu008 <leleliu008@gmail.com> 1673391639 +0800
-    // committer leleliu008 <leleliu008@gmail.com> 1673391639 +0800
+    // author dyglcc <dyglcc@gmail.com> 1673391639 +0800
+    // committer dyglcc <dyglcc@gmail.com> 1673391639 +0800
     //
     // optimized
 

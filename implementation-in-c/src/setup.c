@@ -15,7 +15,7 @@
 #include "ndk-pkg.h"
 
 static int get_uppm_latest_version(const char ** uppmLatestReleaseName, const bool verbose) {
-    int ret = ndkpkg_http_fetch_to_file("https://api.github.com/repos/leleliu008/uppm/releases/latest", "uppm.json", verbose, verbose);
+    int ret = ndkpkg_http_fetch_to_file("https://api.github.com/repos/dyglcc/uppm/releases/latest", "uppm.json", verbose, verbose);
 
     if (ret == NDKPKG_OK) {
         FILE * file = fopen("uppm.json", "r");
@@ -173,7 +173,7 @@ int ndkpkg_setup(const bool verbose) {
 
     ////////////////////////////////////////////////////////////////////////////////////////////
 
-    ret = ndkpkg_http_fetch_to_file("https://raw.githubusercontent.com/leleliu008/ndkpkg/c/ndkpkg-install", "ndkpkg-install", verbose, verbose);
+    ret = ndkpkg_http_fetch_to_file("https://raw.githubusercontent.com/dyglcc/ndkpkg/c/ndkpkg-install", "ndkpkg-install", verbose, verbose);
 
     if (ret != NDKPKG_OK) {
         return ret;
@@ -181,7 +181,7 @@ int ndkpkg_setup(const bool verbose) {
 
     ////////////////////////////////////////////////////////////////////////////////////////////
 
-    ret = ndkpkg_http_fetch_to_file("https://raw.githubusercontent.com/leleliu008/ndkpkg/c/ndkpkg-do12345", "ndkpkg-do12345", verbose, verbose);
+    ret = ndkpkg_http_fetch_to_file("https://raw.githubusercontent.com/dyglcc/ndkpkg/c/ndkpkg-do12345", "ndkpkg-do12345", verbose, verbose);
 
     if (ret != NDKPKG_OK) {
         return ret;
@@ -197,7 +197,7 @@ int ndkpkg_setup(const bool verbose) {
         size_t urlCapacity = strlen(item) + 53U;
         char   url[urlCapacity];
 
-        ret = snprintf(url, urlCapacity, "https://raw.githubusercontent.com/leleliu008/ndkpkg/c/%s", item);
+        ret = snprintf(url, urlCapacity, "https://raw.githubusercontent.com/dyglcc/ndkpkg/c/%s", item);
 
         if (ret < 0) {
             perror(NULL);
@@ -289,7 +289,7 @@ int ndkpkg_setup(const bool verbose) {
     size_t tarballUrlCapacity = tarballFileNameCapacity + strlen(uppmLatestReleaseName) + 55U;
     char   tarballUrl[tarballUrlCapacity];
 
-    ret = snprintf(tarballUrl, tarballUrlCapacity, "https://github.com/leleliu008/uppm/releases/download/%s/%s", uppmLatestReleaseName, tarballFileName);
+    ret = snprintf(tarballUrl, tarballUrlCapacity, "https://github.com/dyglcc/uppm/releases/download/%s/%s", uppmLatestReleaseName, tarballFileName);
 
     if (ret < 0) {
         perror(NULL);

@@ -30,7 +30,7 @@ int ndkpkg_env(const bool verbose) {
 
     free(selfRealPath);
 
-    printf("ndk-pkg.website : %s\n", "https://github.com/leleliu008/ndk-pkg");
+    printf("ndk-pkg.website : %s\n", "https://github.com/dyglcc/ndk-pkg");
    
     return NDKPKG_OK;
 }

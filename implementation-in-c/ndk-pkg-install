@@ -521,7 +521,7 @@ xbuilder() {
     XBUILDER="$SESSION_DIR/xbuilder"
 
     if [ ! -f "$XBUILDER" ] ; then
-        wfetch 'https://raw.githubusercontent.com/leleliu008/ppkg/refs/heads/master/xbuilder' -o "$XBUILDER" --no-buffer
+        wfetch 'https://raw.githubusercontent.com/dyglcc/ppkg/refs/heads/master/xbuilder' -o "$XBUILDER" --no-buffer
     fi
 
     run sh "$XBUILDER" install "$@" --prefix="$NATIVE_PACKAGE_INSTALLED_ROOT" --download-dir="$NDKPKG_DOWNLOADS_DIR" --session-dir="$SESSION_DIR/native"
@@ -1270,7 +1270,7 @@ $DOT_CONTENT
             NON_RELOCATEABLE_BINARY_PACKAGE_INSTALL_DIR="/opt/$NON_RELOCATEABLE_BINARY_PACKAGE_NAME"
 
             if [ ! -f "$NON_RELOCATEABLE_BINARY_PACKAGE_INSTALL_DIR/ok" ] ; then
-                wfetch "https://github.com/leleliu008/non-relocatable-binary-packages/releases/download/2024.10.27/$NON_RELOCATEABLE_BINARY_PACKAGE_NAME.tar.xz"
+                wfetch "https://github.com/dyglcc/non-relocatable-binary-packages/releases/download/2024.10.27/$NON_RELOCATEABLE_BINARY_PACKAGE_NAME.tar.xz"
                 run $sudo install -d -g `id -g` -o `id -u` "$NON_RELOCATEABLE_BINARY_PACKAGE_INSTALL_DIR"
                 run bsdtar xPf "$NON_RELOCATEABLE_BINARY_PACKAGE_NAME.tar.xz"
                 run touch "$NON_RELOCATEABLE_BINARY_PACKAGE_INSTALL_DIR/ok"
@@ -1342,7 +1342,7 @@ $DOT_CONTENT
         PYTHON3_DISTRIBUTION_INSTALL_DIR="$NATIVE_PACKAGE_INSTALLED_ROOT/python3"
 
         if [ ! -f "$PYTHON3_DISTRIBUTION_INSTALL_DIR/ok" ] ; then
-            wfetch "https://github.com/leleliu008/python-distribution/releases/download/2024.10.27/$PYTHON3_DISTRIBUTION_FILENAME_PREFIX.tar.xz"
+            wfetch "https://github.com/dyglcc/python-distribution/releases/download/2024.10.27/$PYTHON3_DISTRIBUTION_FILENAME_PREFIX.tar.xz"
             run install -d "$PYTHON3_DISTRIBUTION_INSTALL_DIR"
             run bsdtar xf  "$PYTHON3_DISTRIBUTION_FILENAME_PREFIX.tar.xz" -C "$PYTHON3_DISTRIBUTION_INSTALL_DIR" --strip-components=1
             run touch "$PYTHON3_DISTRIBUTION_INSTALL_DIR/ok"

@@ -109,7 +109,7 @@ int ndkpkg_integrate_zsh_completion(const char * outputDIR, const bool verbose) 
         return NDKPKG_ERROR;
     }
 
-    const char * const url = "https://raw.githubusercontent.com/leleliu008/ndkpkg/master/ndkpkg-zsh-completion";
+    const char * const url = "https://raw.githubusercontent.com/dyglcc/ndkpkg/master/ndkpkg-zsh-completion";
 
     ret = ndkpkg_http_fetch_to_file(url, tmpFilePath, verbose, verbose);
 

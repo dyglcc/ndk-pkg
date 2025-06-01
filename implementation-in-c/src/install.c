@@ -865,7 +865,7 @@ static int getNativePackageInfoByID(int packageID, NativePackage * nativePackage
             break;
         case NATIVE_PACKAGE_ID_LIBBZ2:
             nativePackage->name = "libbz2";
-            nativePackage->srcUrl = "https://github.com/leleliu008/bzip2/archive/refs/tags/1.0.8.tar.gz";
+            nativePackage->srcUrl = "https://github.com/dyglcc/bzip2/archive/refs/tags/1.0.8.tar.gz";
             nativePackage->srcSha = "fb36d769189faaf841390fae88639fb02c79b87b0691a340fbbfc32b4f82b789";
             nativePackage->buildConfigureArgs = "-DINSTALL_EXECUTABLES=OFF -DINSTALL_LIBRARIES=ON -DBUILD_STATIC_LIBS=ON -DBUILD_SHARED_LIBS=OFF";
             nativePackage->buildSystemType = BUILD_SYSTEM_TYPE_CMAKE;
@@ -3006,8 +3006,8 @@ static int copy_dependent_libraries(
     }
 }
 
-//  /home/leleliu008/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>                     <- packageWorkingTopDIR
-//  /home/leleliu008/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>/native-build-<PKG>  <- workingDIR
+//  /home/dyglcc/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>                     <- packageWorkingTopDIR
+//  /home/dyglcc/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>/native-build-<PKG>  <- workingDIR
 static int ndkpkg_build_for_native(
         const NDKPKGInstallOptions * installOptions,
         const NDKPKGFormula * formula,
@@ -3454,12 +3454,12 @@ static int ndkpkg_install_package(
 
     //////////////////////////////////////////////////////////////////////////////
 
-    //  /home/leleliu008/.ndk-pkg                                                                     <- ndkpkgHomeDIR
-    //  /home/leleliu008/.ndk-pkg/run/<pid>                                                           <- sessionDIR
-    //  /home/leleliu008/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>                     <- packageWorkingTopDIR
-    //  /home/leleliu008/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>/native-build-<PKG>  <- buildForNativeDIR
-    //  /home/leleliu008/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>/src                 <- packageWorkingSrcDIR
-    //  /home/leleliu008/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>/fix                 <- packageWorkingFixDIR
+    //  /home/dyglcc/.ndk-pkg                                                                     <- ndkpkgHomeDIR
+    //  /home/dyglcc/.ndk-pkg/run/<pid>                                                           <- sessionDIR
+    //  /home/dyglcc/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>                     <- packageWorkingTopDIR
+    //  /home/dyglcc/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>/native-build-<PKG>  <- buildForNativeDIR
+    //  /home/dyglcc/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>/src                 <- packageWorkingSrcDIR
+    //  /home/dyglcc/.ndk-pkg/run/<pid>/<target-platform-spec>-<package-name>/fix                 <- packageWorkingFixDIR
 
     size_t packageWorkingTopDIRCapacity = sessionDIRLength + targetPlatformSpecCapacity + packageNameLength + 2U;
     char   packageWorkingTopDIR[packageWorkingTopDIRCapacity];

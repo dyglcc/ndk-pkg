@@ -289,7 +289,7 @@ EOF
     cat > META-INF/README.ndk-pkg <<EOF
 packed by ndk-pkg-$NDKPKG_VERSION in $(date -u -d "@$TIMESTAMP_UNIX" '+%Y-%m-%d %H:%M:%SZ')
 
-For more details, please refer to https://github.com/leleliu008/ndk-pkg
+For more details, please refer to https://github.com/dyglcc/ndk-pkg
 EOF
     run cp -r "$PACKAGE_INSTALLED_DIR/.ndk-pkg"/* META-INF/
 

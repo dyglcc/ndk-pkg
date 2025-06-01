@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 
-MAINTAINER leleliu008@gmail.com
+MAINTAINER dyglcc@gmail.com
 
 ADD ndk-pkg /usr/bin/
 

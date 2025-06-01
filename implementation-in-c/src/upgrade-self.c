@@ -103,7 +103,7 @@ int ndkpkg_upgrade_self(const bool verbose) {
 
     ////////////////////////////////////////////////////////////////////////////////////////////
 
-    const char * githubApiUrl = "https://api.github.com/repos/leleliu008/ndkpkg/releases/latest";
+    const char * githubApiUrl = "https://api.github.com/repos/dyglcc/ndkpkg/releases/latest";
 
     size_t githubApiResultJsonFilePathCapacity = sessionDIRCapacity + 13U;
     char   githubApiResultJsonFilePath[githubApiResultJsonFilePathCapacity];
@@ -288,7 +288,7 @@ finalize:
     size_t tarballUrlCapacity = tarballFileNameCapacity + strlen(latestReleaseTagName) + 66U;
     char   tarballUrl[tarballUrlCapacity];
 
-    ret = snprintf(tarballUrl, tarballUrlCapacity, "https://github.com/leleliu008/ndkpkg/releases/download/%s/%s", latestReleaseTagName, tarballFileName);
+    ret = snprintf(tarballUrl, tarballUrlCapacity, "https://github.com/dyglcc/ndkpkg/releases/download/%s/%s", latestReleaseTagName, tarballFileName);
 
     if (ret < 0) {
         perror(NULL);
